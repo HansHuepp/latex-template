@@ -6,9 +6,51 @@ Das folgende Kapitel behandelt die für die Entwicklung des Krankenhaus Messenge
 
 Dass die Gesundheitsdaten zum Zweck der Gesundheits vorsorge verarbeitet werden sollen, reicht dagegen in der Regel nicht aus, um eine Zulässigkeit zu begründen. Denn die Gesundheitsvorsorge ist nur dann als Ausnahme vom Verbot der Verarbeitung von Gesundheitsdaten einschlägig, wenn z. B. ein (Berufs-)Geheimnisträger die Verarbeitung verantwortet (Artikel 9 Abs. 3 DSGVO).
 
-\subsection{Maßnahmen zur Wahrung der Nutzerrechte}\label{subsection:mzwdn}
+\subsection{Rechtfertigungsgründe für die Verarbeitung von Gesundheitsdaten}\label{subsection:rfdvvg}
+//Ein zentraler Grundsatz im Datenschutzrecht besagt, dass man personenbezogene Daten nur dann speichern, übermitteln oder anderweitig verarbeiten darf, wenn hierfür eine gesetzliche Rechtsgrundlage besteht. Die infrage kommenden Rechtsgrundlagen sind in der DSGVO aufgelistet (Artikel 6). Als Rechtsgrundlage kommt z. B. die Einwilligung der Person, deren Daten genutzt werden, oder ein Vertrag mit ihr in Betracht.
+Bei Gesundheitsdaten gelten jedoch weitaus strengere Regeln als bei einfachen personenbezogenen Daten. Gesundheitsdaten sind sensible, besonders schützenswerte Daten und werden im Gesetz als „besondere Kategorie“ personenbezogener Daten behandelt. Grundsätzlich ist es untersagt, Gesundheitsdaten zu verarbeiten. Dieses Verbot gilt nur dann nicht, wenn einer der gesetzlich geregelten Ausnahmefälle gegeben ist (Artikel 9 Abs. 2–4 DSGVO).
+Neben der allgemeinen Rechtsgrundlage für die Verarbeitung muss somit zusätzlich ein Ausnahmetatbestand gerade für die Verarbeitung von Gesundheitsdaten bestehen.//
+Damit Gesundheitsdaten verarbeitet werden dürfen muss einer der Ausnahmetatbestände in Artikel 9 Abs. 2–4 DSGVO greifen. Im Falle von Krankenhäusern greift in der Regel Artikel 9 Abs. 2–4 DSGVO: 
 
-\subsection{Vorgaben zur Datensicherheit}\label{subsection:mzwdn}
+"a) Die betroffene Person hat in die Verarbeitung der genannten personenbezogenen Daten für einen oder mehrere festgelegte Zwecke ausdrücklich eingewilligt, es sei denn, nach Unionsrecht oder dem Recht der Mitgliedstaaten kann das Verbot nach Absatz 1 durch die Einwilligung der betroffenen Person nicht aufgehoben werden,"
+
+Um das Verarbeiten ist von Gesundheitsdaten über den Messenger Dienst zu ermöglichen, muss dementsprechend geprüft werden, ob eine Einwilligung des Patienten zum Austausch der Daten innerhalb des Krankenhauses bereits vorliegt. Wenn dies nicht der Fall ist, müsste eine solche Klausel in den Patienten AGBs des Krankenhauses ergänzt werden. Dieser Teil des Datenschutzgesetzes hat zwar keinen direkten EInfluss auf die technische Umsetzung des Messanger Dienstes, wurde an dieser Stelle aber dennoch behandlet, da es sich bei den Maßnahmen zur Wahrung der Nutzerrechte und des Einverständnis des Nutzers zuer Verarbeitung der eigenen Daten ein so grundlegender Pfeiler für die Datenverarbeitung nach DSGVO ist.
+
+\subsection{Maßnahmen zur Wahrung der Nutzerrechte}\label{subsection:mzwdn}
+//Zu ihrem Schutz werden den Betroffenen verschiedene Rechte gewährt. Sie müssen zunächst durch eine Datenschutzerklärung über die Datenverarbeitung informiert werden. Darüber hinaus können die Betroffenen Auskünfte über ihre Daten verlangen und/oder die Berichtigung oder Löschung ihrer Daten fordern. Sie können der weiteren Verarbeitung ihrer Daten widersprechen oder deren Übertragung an einen anderen Anbieter fordern.//
+Die Wahrung der Nutzerrechte gilt für den Messanger Dienst in doppelter Hinsicht. 
+Zum einen müssen die genannten Rechte gegenüber der Patienten eingehalten werden. Besonders das Recht auf Löschung der personenbezogenen Daten ist dabei Relevant für den Messanger, da bei einer Forderung auf Löschung sichergestellt werden muss, dass die betroffenen personenbezogenen Daten auch aus den Chat Verläufen des Dienstes entfernt werden. Zum Anderen sind die Maßnahmen zur Wahrung der Nutzerrechte aber auch für die Nutzer der Plattform selbst, also das Krankenhauspersonal zu beachten.
+
+Der Messanger Dienst muss also technisch in der Lage sein, Nutzer Daten und Chatverläufe dediziert Ausgeben und wenn gewollt, diese Daten permanent von allen, mit dem Dienst verbundenen Geräten löschen zu können. 
+
+\subsection{Vorgaben zur Datensicherheit}\label{subsection:vzd}
+//Gerade im Gesundheitsbereich ist die Datensicherheit von entscheidender Bedeutung. Die Betroffenen und die Öffentlichkeit reagieren überaus sensibel, wenn es zu Datenpannen kommt. Durch die DSGVO wird das erforderliche Schutzniveau verbindlich konkretisiert.//
+Um das von der DSGVO geforderte, angemessenen Schutz sicher zu stellen, muss zunächst das Schutzniveaus der Daten ermittelt werden.
+Dies geschieht anhand eines risikobasierten Ansatzes. Die beurteilung liegt dabei in der Eigenverantwortung der Betreiber der Plattform. Die Kriterien für die Bewertung eines Dienstes lauten nach der "Orientierungshilfe zum Gesundheitsdatenschutz" wie folgt:
+(S. 41)
+
+-Die Schwere eines möglichen Schadens beurteilt sich nach dem Gewicht des bedrohten Rechts bzw. der bedrohten Freiheit sowie danach, welche Schäden ihnen aus der Verarbeitung erwachsen können. Dabei sind sowohl materielle als auch immaterielle Schäden von Bedeutung. Je sensibler die Daten sind, desto größer ist die mögliche Schadenshöhe. Bei Gesundheitsdaten ist grundsätzlich von einer besonderen Schadenshöhe auszugehen.
+
+-Die zudem zu berücksichtigende Eintrittswahrscheinlichkeit meint den statistischen Erwartungswert, mit dem ein bestimmtes Schadensereignis eintreten wird.
+
+-Art der Verarbeitung: Artikel 4 Nr. 2 DSGVO nennt insbesondere das Erheben, das Erfassen, die Übermittlung, das Ordnen, die Speicherung, das Löschen und die Vernichtung.
+
+-Umfang der Verarbeitung: Menge der Personen, deren Daten in die Verarbeitung einfließen, sowie Menge der Daten, die dabei über eine Person erhoben werden. Dabei ist zu berücksichtigen, dass Daten umso engmaschiger miteinander verknüpft werden können, je größer die Datenmenge ist. Der Aussagegehalt einer Datenanalyse steigt zudem mit der wachsenden Anzahl von Personen, die in eine vergleichende Betrachtung einbezogen werden.
+
+-Umstände der Verarbeitung: Gemeint sind alle tatsächlichen und rechtlichen Gegebenheiten, die die Einzelheiten des Verarbeitungsprozesses bestimmen.
+
+-Zwecke der Verarbeitung: Hiermit sind die Ziele gemeint, die mit der Verarbeitung verfolgt werden. Diese legt der Verantwortliche selbst fest.
+
+//Für die Bestimmung des angemessenen Schutzniveaus spielen neben dem Risiko für die Rechte und Freiheiten des Betroffenen auch die wirtschaftlichen Interessen des Unternehmens, insbesondere die Implementierungskosten, eine Rolle. Implementierungskosten sind die wirtschaftlichen Ressourcen, die der Verarbeiter aufwenden muss, um die Maßnahme in sein Verarbeitungssystem zu integrieren. Die Höhe der Implementierungskosten kann als Grenze der dem Unternehmen noch zumutbaren Sicherheitsmaßnahmen zu berücksichtigen sein.
+Schließlich muss der Stand der Technik berücksichtigt werden. Nur solche Maßnahmen, die technisch verfügbar sind und Marktstandards entsprechen, müssen ergriffen werden. Umgekehrt muss der Verarbeiter diesen Anforderungen aber auch genügen. Hinsichtlich des Stands der Technik können sich Unternehmen an den BSI-Grundsätzen bzw. der ISO 27000-Normenreihe orientieren.
+Auf Grundlage des ermittelten Schutzbedarfs sind sodann geeignete technische und/oder organisatorische Maßnahmen zu treffen, die einen angemessenen Schutz vor den Risiken gewährleisten. Die Maßnahmen müssen laufend überprüft und aktualisiert werden.
+Unter technischen Maßnahmen versteht man Vorkehrungen, die sich auf den Vorgang der Verarbeitung von Daten erstrecken, wie z. B. bauliche Maßnahmen, die den Zutritt Unbefugter verhindern sollen, oder Steuerungen des Software- oder Hardwareprozesses der Verarbeitung, etwa durch Maßnahmen der Zugriffs- oder Weitergabekontrolle wie Verschlüsselung oder Passwortsicherung.
+Organisatorische Maßnahmen beziehen sich insbesondere auf die äußeren Rahmenbedingungen zur Gestaltung des technischen Verarbeitungsprozesses, etwa die Einhaltung des Vieraugenprinzips, das Wegschließen von Datenträgern, Protokollierungen von Tätigkeiten und Stichprobenroutinen. Dazu können auch Schulungen der Mitarbeiter oder Verpflichtungserklärungen gehören.//
+
+Um die technischen Anforderungen für die Konzeption des Messenger Dienstes bestimmen zu können ist es also Notwendig das angemessenen Schutzniveau für einen solchen Dienst zu bestimmen. Für diese Arbeit werden die von der Gesellschaft für Datenschutz im Dokument "Austausch von Gesundheitsdaten -  Datenschutzrechtliche Anforderungen an Datenaustauschplattformen im Gesundheitswesen" heraus gegebenen Empfehlungen für die technischen Anforderungen an eine Plattform mit dem Schutzniveau des Messenger Dienstes übernommen. Diese werden in Kapitel ... weiter besprochen und ihre praktische Umsetzbarkeit für die Konzeption des Dienstes diskutiert. 
+
+
+// Abschließend ist fest zu halten, dass ein Unternehmen nachzuweisen hat, dass die Sicherheit der Verarbeitung gewährleistet ist. Für den Nachweis der Erfüllung der Verpflichtung zur Herstellung eines angemessenen Schutzniveaus kann auch die Einhaltung genehmigter Verhaltensregeln (Artikel 40 DSGVO) oder eines genehmigten Zertifizierungsverfahrens (Artikel 42 DSGVO) als Faktor herangezogen werden//
 
 \subsection{Gesundheitsdatenspezifische Anforderungen}\label{subsection:ga}
 
