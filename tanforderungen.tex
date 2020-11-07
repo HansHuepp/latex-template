@@ -1,6 +1,52 @@
 \chapter{Konzeption technischer Umsetzung}\label{chapter:tanforderungen}
+Das Ziel des folgende Kapitel ist es zu erläutern wie auf Baisis der aufgestellten gesetzlichen und funktionalen Anforderungen ein der Zielsetzung dieser Arbeit entsprechenden Messanger Dienst erstellt werden kann. Das im folgenden Kapitel erstellten Konzept zur Umsetzung des Dienstes soll als Leitfaden für die reale Erstellung des Messangers dienen. 
+
+\section{Erörterung eines geeigneten Frameworks}\label{chapter:kr}
+
+\subsection{Auswahl möglicher Framworks}\label{chapter:am}
+
+\subsection{Vorstellung des Matrix Frameworks}\label{chapter:vdmf}
+Matrix ist ein offener Standard und ein Kommunikationsprotokoll für die Echtzeitkommunikation. Ziel ist es, die Echtzeitkommunikation zwischen verschiedenen Dienstanbietern nahtlos zu gestalten, genau wie dies beim Standard-E-Mail-Dienst für das einfache Mail-Übertragungsprotokoll jetzt der Fall ist, indem Benutzern mit Konten bei einem Kommunikationsdienstanbieter die Kommunikation mit Benutzern eines Unterschiedlicher Dienstanbieter über Online-Chat, Voice over IP und Videotelefonie.
+
+Aus technischer Sicht handelt es sich um ein Kommunikationsprotokoll auf Anwendungsebene für die föderierte Echtzeitkommunikation. Es bietet HTTP-APIs und Open-Source-Referenzimplementierungen für die sichere Verteilung und Speicherung von Nachrichten im JSON-Format über einen offenen Serververbund. Es kann über WebRTC in Standard-Webdienste integriert werden und erleichtert Browser-zu-Browser-Anwendungen.
+
+Matrix Ziele sind Anwendungsfälle wie Voice over IP, Internet der Dinge und Instant Messaging, einschließlich Gruppenkommunikation, sowie das längerfristige Ziel, ein generisches Messaging- und Datensynchronisationssystem für das Web zu sein. Das Protokoll unterstützt Sicherheit und Replikation und behält den vollständigen Konversationsverlauf bei, ohne dass einzelne Kontrollpunkte oder Fehler auftreten. Bestehende Kommunikationsdienste können in das Matrix-Ökosystem integriert werden.
+
+Für die Kommunikation mit Instant Messaging (IM), Voice over IP (VoIP) und Internet of Things (IoT) steht eine Client-Software zur Verfügung.
+
+Der Matrix-Standard spezifiziert RESTful-HTTP-APIs für die sichere Übertragung und Replikation von JSON-Daten zwischen Matrix-fähigen Clients, Servern und Diensten. Clients senden Daten, indem sie sie an einen "Raum" auf ihrem Server senden. Dieser repliziert die Daten dann über alle Matrix-Server, die an diesem "Raum" teilnehmen. Diese Daten werden mit einer Signatur im Git-Stil signiert, um Manipulationen zu vermeiden. Der Verbundverkehr wird mit HTTPS verschlüsselt und mit dem privaten Schlüssel jedes Servers signiert, um Spoofing zu vermeiden. Die Rep folgtlikation einer eventuellen Konsistenzsemantik, sodass Server auch offline oder nach Datenverlust funktionieren können, indem der fehlende Verlauf von anderen teilnehmenden Servern erneut synchronisiert wird.
+
+\subsubsection{Matrix Netwerktoplogie}\label{chapter:aemn}
+Einer der großen alleinstellungs Merkmale des Matrix Frameworks ist der dezentralisierte Aufbau, welcher es erlaubt multiple Matrix Instanzen von einander unabhängig zu betreiben, welche dennoch in der Lage sind, mit einander zu kommunizieren. Ein Netzwerk aus mehreren Matrix Instanzen folgt dabei dem folgenden Aufbau:
+Im Zentrum jeder Matrix Instanz steht der sogenannte Homeserver. Jeder Homeserver stellt dabei einen eigene Instanz des Messangers dar, welcher in Kombination mit einer Datenbank als Speicher und einem Frontend, welches mit den API schnittstellen des Homeservers kommuniziert, betrieben werden kann. Jeder Nutzer (Client) des Matrix Netzwerks ist dabei einem Homeserver zugeordnet, über welchen sein Account verifiziert wird und welcher für die Sicherung seiner Daten und Chatverläufe zuständig ist. Das besondere hierbei ist, dass die Kommunkation innerhalb von Matrix nicht auf einen einzelnen Homeserver beschränkt ist. Durch ein enstprechendes White bzw Blacklisting kann die Kommunkation mit anderen Homeservern erlaubt beziehungsweise eingeschränkt werden. Matrix geht dabei wie folgt vor:
+Der Matrix-Standard spezifiziert RESTful-HTTP-APIs für die sichere Übertragung und Replikation von JSON-Daten zwischen Matrix-fähigen Clients, Servern und Diensten. Diese Daten werden mit einer Signatur im Git-Stil signiert, um Manipulationen zu vermeiden. Das Daten Paket wird mit HTTPS verschlüsselt und mit dem privaten Schlüssel des Servers signiert, um Spoofing zu vermeiden.
+Die Client sendet dieses Datenpaket dann an den gewälten "Raum" auf ihrem Matrix Homeserver. Dieser repliziert die Daten dann über alle Matrix-Server, die an diesem "Raum" teilnehmen. Somit ist es möglich gezielt zwischen zwei oder mehr Homeservern zu kommunizieren und nur den inhalt der Chats dieser Räume zwischen den Homeservern auszutauschen, ohne dass sämtliche auf den Datenbanken der Homeserver hinterlegten Chats ausgetauscht werden müssen. Zumdem führt dies auch dazu, dass, sollte ein Homeserver aus Gründen nicht erreibar sein, zum Beispiel durch einen Absturz oder Wartungen an dem System, ist die Kommunkation innerhalb und zwischen den anderen Homeservern des Netzwerks immer noch möglich ist.
+
+FÜr die Verwaltung von Nutzern ist es möglich einen so genanten Identity Server mit dem eigenen Homeserver zu verknüpfen, welcher es erlaubt externe Nutzerverwaltungen zur authentifikation gegenüber dem Homeserver zu Nutzen. Die Basis der Matrixinternen Nutzerverwaltung bildet die sogenannte Matrix user IDs (MXID), welche wie folgt aufgebaut ist "@username:homeserver.tld". Diese ist einzigartig für jeden Nutzer. Darauf aufbauend können Third-party IDs (3PIDs) mit der MXID verbunden werden, wie zum Beispiel eine E-Mail Adresse, eine Handynummer oder ein Display Name, welche die Identifikation einzelner Nutzer vereinfacht. Wird kein Identiy Server mit dem Homeserver Verbunden kann ein Nutzerkonto direkt über den Homeserver erstellt werden. Hierfür kann ein in der Konfiguration des Homeservers festgelegter 3PID in kombination mit einem Passwort angegeben werden, worauf hin der Homeserver den Nutzer anlegt und eine passende MXID erstellt. In der Regel ist es aber wünschenswert eine bereits bestehende Nutzerverwaltung mit dem Homeserver zu verküpfen, da auf diese Weise die Nutzer keine zustzlichen Accounts erstellen müssen, da sie sich über die Nutzerverwaltung authentifizieren können und der Betreiber des Homeservers keine weitere Nutzerverwaltung extra für den Homeserver betreiben muss. Zum verbinden eines Homeservers mit einer Nutzerverwaltung nutzt Matrix OpenID Connect, ein offener Standart für ein dezentralisiertes authentifikations Protokoll, sowie die Schnittstellen CAS und SAML .
 
 
+Was bedeutet das fürs Krankenhaus
+
+\subsubsection{Matrix Verschlüsselung}\label{chapter:aemn}
+
+\section{Konzeption des Messangers auf Basis des Matrix Frameworks}\label{chapter:km}
+Installation: Matrix kann als Container deployed werden deshalb funktioniert openshift -> viel Vorteile (mit Ziatat belegen)
+
+
+
+\subsection{Aufbau des Backends}\label{chapter:am}
+Matrix Backend besteht aus DB und homeserver: Homeserver muss wie folgt angepasst werden
+
+\subsection{Aufbau des Frontends}\label{chapter:vdmf}
+Frontend ist Riot: Opensource code muss wie folgt angepasst werden
+
+Zusätzliche erweiterungen:
+Was muss noch zusätzlich eingebaut werden um alle Anfroderungen zu eerfüllen 
+
+Auglsitung vothandener Funktionen und Prüfung mit Anforderungskatalog:
+...
+
+\subsection{Prüfung des Konzeptes anhand des Anfroderugnskatalogs}\label{chapter:vdmf}
 // Ist das Notwendig ?
 Auswertung der Anforderungen und übertragung zu wie man es technsich umsetzen kann.
 
