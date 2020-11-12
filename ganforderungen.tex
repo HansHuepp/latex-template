@@ -87,226 +87,40 @@ Um das Verarbeiten von Gesundheitsdaten über den Messenger Dienst zu ermöglich
 \section{Anforderungen an die Plattform auf Basis der bestehenden Gesetzeslage}\label{section:aadpabsbg}
 Nachdem im vorherigen Kaptitel bereits die für die Verarbeitung von Gesundheitsdaten relevanten Abschnitte der DSGVO herausgearbeitet wurden, werden diese allgemein gehaltenen Gesetzestexte der DSGVO im folgenden Kapitel in konkrete Anforderungen an den Messenger Dienst überführt. 
 
-Der zu entwicklende Messanger Dienst fällt in die Kategorie einer Datenaustauschplattform für Gesundheitsdaten und dabei in die Unterkategorie einer E-Collaborationsplattform. Die Kategorisierung gibt dabei das in Kapitel x bereits aufgeführte Schutzniveau des Dienstes vor und dient als Orientierung für die Auswertung der DSGVO Richtlinien. 
+Das Ziel dieses Kapitels ist es somit die Fertigstellung eines Anforderungskatalogs, der die gesetzlich relevanten Anforderungen eines der Zielsetzung dieser Arbeit entsprechenden Messanger Dienstes beinhaltet, auf dessen Basis anschließend die Umsetzung des Messanger Dienstes erarbeitet werden.
 
-Somit ist es für die Entwicklung des Dienstes notwendig, die breits herausgearbeiteten DSGVO Richtlinien auf ihre Implikationen für eine E-Collaborationsplattform wie den Messenger auszuwerten und die sich daraus ergebenden Anforderungen aufzustellen. 
-DIe Basis für diese Auswertung bilden dabei die im Austausch von Gesundheitsdaten - Datenschutzrechtliche Anforderungen an Datenaustauschplattformen im Gesundheitswesen aufgestellten technischen und organisatorischen Anforderungen an eine Datenaustauschplattform für medizinische Daten. Diese Anforderungen werden im folgenden danach sortiert, in wie Weit sie die konkrete Entwicklung der Messanger Plattform betreffen und ihre genaue Bedeutung für die konkrete Umsetzung des Dienstes werden erläutert.
-Das Ziel dieses Kapitels ist es somit die Fertigstellung eines Anforderungskatalogs, der die gesetzlich relevanten Anforderungen eines der Zielsetzung dieser Arbeit entsprechenden Messanger Dienstes beinhaltet. Auf dessen Basis soll anschließend die Umsetzung des Messanger Dienstes erarbeitet werden.
+Der zu entwicklende Messanger Dienst fällt in die Kategorie einer Datenaustauschplattform für Gesundheitsdaten und dabei in die Unterkategorie einer E-Collaborationsplattform. Die Kategorisierung gibt dabei das in Kapitel x bereits aufgeführte Schutzniveau des Dienstes vor und dient als Orientierung für die Auswertung der DSGVO Richtlinien. Somit ist es für die Entwicklung des Dienstes notwendig, die bereits herausgearbeiteten DSGVO Richtlinien auf ihre Implikationen für eine E-Collaborationsplattform wie den Messenger auszuwerten und die sich daraus ergebenden Anforderungen aufzustellen. 
 
-Das Dokument Austausch von Gesundheitsdaten - Datenschutzrechtliche Anforderungen an Datenaustauschplattformen im Gesundheitswesen nennt 99 Anfroderungen an eine E-Collaborationsplattform im Gesundheitswesen auf Basis der in der DSGVO festgelegten Richtlinien. EIne vollständige Liste aller Anforderungen findet sich im Anhang auf Seite x. Im folgenden werden nur die Anforderungen genannt und diskutiert, welche für technische Umsetzung des Messanger Dienstes relevant sind.
+Die Basis für diese Auswertung bildet dabei das vom x herausgegebene Dokument "Austausch von Gesundheitsdaten - Datenschutzrechtliche Anforderungen an Datenaustauschplattformen im Gesundheitswesen". Innerhalb dieses Dokumentes werden 99 allgemein gültigen Anforderungen an eine DAtenaustausch Plattform im Gesundheitswesen gelistet, welche aus der bestehenden gesetzeslage durch die DSGVO abstrahiert wurden.
+Eine vollständige auflistung aller Anforderungen findet sich im Anhang Seite x.
 
+Für diese Arbeit wurden die 99 allgemeinen Anforderungen danach sortiert, in wie Weit für die Entwicklung eines der Zielsetzung dieser Arbeit entsprechenden Messanger Dienst relevant sind. Die Anforderungen wurden dabei in die Kategorien relevant, teilweise relevant und nicht relevant eingeordnet. Des weiteren wurden alle Anforderungen, welche in die Kategorie relevant oder teilweise relevant vielen im zusammenhang mit den zugrunde liegenden DSGVO gesetzten (siehe Kapitel x) analysiert und anhand der allgemeinen gefassten Anforderung deren jeweils spezifische Bedeutung für die Umsetzung des Messangers für die noch folgeden Konzeption erläutert. Das Ergebnis dieser Analyse sind 37 gesetzliche Anforderungen speziel an den Messanger Dienst die technisch Umgesetzt werden müssen, um einen gesetzeskonformen Betrieb in Krankenhäusern zu erlauben. Dieser angepasste und jeweils um Bedeutung für die Umsetzung des Messangers ergänzte Anforderungskatalog kann im Anhang seine x eingesehen werden.
 
-T Anforderung 1
-„Jegliche Erhebung, Verarbeitung und Nutzung personenbezogener oder personenbeziehbarer Daten - insbesondere durch den Einsatz von Datenaustauschplattformen, die an das Internet angebunden sind - bedarf einer datenschutzrechtlich wirksamen Einwilligung des Betroffenen.“
-T Anforderung 3
-„Eine Einwilligung muss für den Betroffenen jederzeit mit Wirkung für die Zukunft widerrufbar sein.“
-
-Anforderung 1 und 3 sind relevant, da sie für den Messanger bedeuten, dass dem Krankenhauspersonal die Möglichkeit gegeben werden muss, der Verarbeitung ihrer Nutzerdaten durch die Plattform zuzustimmen. Das gleiche gilt auch für die Patienten, deren Einwilligung über die für das Krankenhaus gültigen AGBs eingeholt werden muss, welche auch die allgemeine Verarbeitung der Patientendaten inerhalb des Krankenhauses beschreiben.
-
-
-T Anforderung 4
-„Jede Datenaustauschplattform muss Datenschutzhinweise veröffentlichen und darin die getroffenen Datensicherheitslösungen allgemeinverständlich beschreiben.“
-T Anforderung 5
-„Datenschutzhinweise müssen unmittelbar von der Startseite der Datenaustauschplattform aus aufrufbar bzw. erreichbar sein.“
-T Anforderung 6
-„Datenschutzhinweise müssen für den Betroffenen jederzeit abrufbar sein.“
-T Anforderung 7
-„Bei nachträglicher Änderung ist der Betroffene zu informieren und sein Einverständnis erneut einzuholen.“
-T Anforderung 8
-„Wird die Einwilligung des Betroffenen elektronisch eingeholt, so muss der Vorgang protokolliert werden und der Inhalt der Einwilligung für den Betroffenen jederzeit abrufbar sein.“
-Der Messanger muss die Möglichkeit bieten, die Datenschutzhinweise Anforderung 4-8 entsprechend den Nutzern zur Verfügung zu stellen.
-Die eigentliche Formulierung der Datenschutzhinwiese ist nicht Teil dieser Arbeit, die technische Umsetzung, um diese auf die geforderte Weise zur Verfügung zu stellen jedoch schon.
-
-T Anforderung 9
-„Personenbezogene oder personenbeziehbare Daten müssen pseudonymisiert werden, soweit dies nach dem Verwendungszweck möglich ist und keinen im Verhältnis zu dem angestrebten Schutzzweck unverhältnismäßigen Aufwand erfordert.“
-Der Messanger Dienst sollte den Nutzern aufgrund dieser Anforderung funktionen zur Verfügung stellen, Daten wie zum Beispiel Bilddateien, die über den Dienst geteilt werden sollen auf eine einfache Art und Weise zu pseudonymisieren.
-
-T Anforderung 13
-„Der Betroffene muss der Nutzung von Cookies explizit zustimmen.“
-T Anforderung 14
-„Die Verwendung von Cookies durch Drittanbieter muss auf die Erstellung anonymer Nutzungsstatistiken beschränkt sein.“
-T Anforderung 15
-„Das Handling der Drittanbieter-Cookies muss durch den Betroffenen steuer- und nachvollziehbar sein.“
-Die gesetzliche Anforderungen 13-15 an den Umgang mit Cookies ist vorallem für die Umsetzung der im Funktionsumfang festgehaltenen Anforderung des Webzugangs zum Messanger Dienst relevant. Der Messanger Dienst muss dementsprechend technisch die Möglichkeit bieten, über mögliche Cookies zu informieren und dem Nutzer die Zustimmung zur Nutzung von Cookies ermöglichen.
-
-T Anforderung 18
-„Die Erhebung, Verarbeitung und Nutzung von Daten zur Erstellung von Nutzungsstatistiken von Webportalen muss dokumentiert werden.“
-T Anforderung 19
-„Die Erstellung von Nutzungsstatistiken von Datenaustauschplattformen muss auf Basis anonymisierter Daten erfolgen.“
-T Anforderung 20
-„Eine Analyse des Nutzerverhaltens (einschließlich Geolokalisierung) auf der Basis gekürzter IP-Adressen ist ohne Einwilligung des Betroffenen möglich, wenn durch die Kürzung der IP-Adresse ein Personenbezug ausgeschlossen wurde.“
-
-Aus Gründen der Privatsphäre ist von einem individuellen Tracken des Nutzerverhaltens auf der Plattform ab zu sehen, da es sich hierbei nicht um eine relevante Funktion für den einsatz des Messaganer Dienstes handelt. Bei der nicht personenbezogenen Auswertungen des Nutzerverhaltens, zum Beispiel zur Überprüfung der Anahme des Dienstes seitens der Nutzer, sind Anforderungen 18-20 zu beachten. Allgemein fällt die Analyse nicht in die Zielsetung der Arbeit und wird deshalb im folgenden nicht weiter besprochen.
-
-T Anforderung 31
-„Alle Personen, welche auf die gespeicherten Gesundheitsdaten zugreifen können, müssen vor dem erstmaligen Zugriff auf die Wahrung des Datengeheimnisses verpflichtet worden sein.“
-Für den Messanger Dienst muss eine technische Lösung implementiert werden, welche eine solche es erlaubt, dem Nutzer eine solche Wahrung zu präsentieren.
-
-T Anforderung 32
-„Ein anonymer Zugriff des Plattformbetreibers sowie der Nutzer der Plattform auf personenbezogene oder personenbeziehbare Gesundheitsdaten ist zu unterbinden.“
-Es muss sicher gestellt werden das der Zugriff auf den Dienst zu jeder Zeit einer realen Person zugeordnet werden kann, dies gilt auch für den direkten Zugriff auf die mit dem Dienst verbundenen Datenbanken durch Administratoren.
-
-T Anforderung 33
-„Daten über den Ablauf des Zugriffs oder der sonstigen Nutzung sind unmittelbar nach dem Zugriff bzw. ggfs. nach erfolgter Abrechnung der Dienstenutzung zu sperren und nur zu entsperren, wenn eine gesetzliche Bestimmung (z.B. Auskunftsersuchen eines Betroffenen) dies erlaubt.“
-Der Messanger muss es erlauben, Daten zeitlich begränzt zu Teilen, damit sicher gestellt werden kann, dass  Daten nur für die Dauer ihres bnötigten Verwendungszwecks über den Messanegr abrufbar sind.
-
-T Anforderung 34
-„Die Nutzung von Telemedien muss gegen die Kenntnisnahme unberechtigter Dritter geschützt werden.“
-Eine Anmeldung und Verifizierung des Nutzers muss vor dem Zugriff auf den Messanger erfolgen. Ebenso muss der Zugriff auf die dem Messanger zugeornete Software und Datenbanken geschützt werden. Dies muss durch eine teschnische Lösung sichergestellt werden.
-
-T Anforderung 35
-„Es muss protokolliert werden, wer wann auf welche personenbezogenen oder personenbeziehbaren Daten mit welcher Berechtigung zugegriffen hat.“
-
-T Anforderung 36
-„Es muss protokolliert werden, wer wann welche personenbezogenen oder personenbeziehbaren Daten mit welcher Berechtigung exportiert oder ausgedruckt hat. Zu jedem Datenexport oder Ausdruck ist die Eingabe einer Begründung notwendig, damit nachvollziehbar und überprüfbar ist, zu welchem Zweck ein Datenexport oder ein Ausdruck erfolgte.“
-
-T Anforderung 37
-„Es muss protokolliert werden, wer wann welche personenbezogenen oder personenbeziehbaren Daten gespeichert, verändert, gesperrt oder gelöscht hat. Bei jeder Löschung ist die Eingabe einer Begründung notwendig, damit nachvollziehbar und überprüfbar ist, wer aus welchem Grund welche Daten löschte.“
-
-T Anforderung 38
-„Es muss protokolliert werden, wer wann auf welche personenbezogenen oder personenbeziehbaren Daten durch die Nutzung erweiterter Systemprivilegien (z.B. durch den sogenannten „Notfall-Zugriff“) zugriff. Zu jedem Datenzugriff unter Nutzung von durch das System bereitgestellten Mechanismen zur Erweiterung der Zugriffsberechtigung ist die Eingabe einer Begründung notwendig, damit nachvollziehbar und überprüfbar ist, zu welchem Zweck ein Zugriff, ein Datenexport oder ein Ausdruck erfolgte.“
-
-
-T Anforderung 41
-„Der Betroffene muss die Möglichkeit haben, jederzeit Einblick in alle zu seiner Person gespeicherten Daten zu erhalten. Dies umfasst auch die Möglichkeit, Änderungen seiner gespeicherten Daten nachzuvollziehen.“
-T Anforderung 42
-„Der Betroffene muss die Möglichkeit haben, einen Ausdruck oder einen für ihn verwertbaren Export aller zu seiner Person gespeicherten Daten zu erhalten.“
-T Anforderung 43
-„Es muss eine Möglichkeit geben, auf Aufforderung des Betroffenen Daten zu seiner Person zu korrigieren.“
-
-T Anforderung 45
-„Wurden Daten vom Betreiber der Datenaustauschplattform an andere Stellen übermittelt, so sollte der Betreiber der Datenaustauschplattform, sofern zumutbar, diese Stellen über erfolgte Berichtigungen informieren, sofern diese Benachrichtigung im Interesse des Betroffenen liegt.“
-
-T Anforderung 46
-„Es muss eine Löschfunktion implementiert werden, welche eine Rekonstruktion gelöschter Informationen ausschließt.“
-
-T Anforderung 48
-„Liegt keine gesetzliche Grundlage zur Speicherung der Daten vor, sind die Daten auf Anweisung des Betroffenen unverzüglich zu löschen.“
-
-T Anforderung 52
-„Die Löschung der Daten ist unter Angabe des Löschgrunds sowie des Anwenders, der die Löschung vornahm, zu protokollieren.“
-
-T Anforderung 58
-„Da im Internet eine potenziell größere Gefährdung für einen unbefugten Zugriff auf personenbezogene Daten existiert, muss mindestens eine 2-Faktor-Authentifizierung erfolgen.“
-
-T Anforderung 59
-„Werden statische Passwörter zur Authentisierung eingesetzt, so müssen die Empfehlungen des BSI bzgl. der Generierung und des Umgangs eingehalten werden. D.h. es müssen technische und organisatorische Maßnahmen zu der Einhaltung der Empfehlungen des BSI getroffen werden.“
-
-T Anforderung 60
-„Authentisierungsgeheimnisse dürfen nur gesichert in Netzwerken übertragen werden, d.h. es muss eine verschlüsselte Datenübertragung entsprechend dem Stand der Technik eingesetzt werden.“
-
-T Anforderung 61
-„Passwörter und/oder entsprechende Formulareingaben dürfen nicht auf dem Client oder in seiner Umgebung unverschlüsselt gespeichert werden, eine Speicherung im Browser ist zu verhindern.“
-
-T Anforderung 62
-„Nach wiederholter fehlerhafter Authentisierung muss der Zugang gesperrt werden.“
-
-T Anforderung 63
-„Die Sitzung muss gesperrt oder beendet werden, wenn der Anwender eine definierte Zeitspanne in der Sitzung keine Aktivitäten durchführte (Sitzungs-Zeitlimit, Session Timeout).“
-
-T Anforderung 64
-„Ein Prozess zur Rücksetzung bzw. Entsperrung von gesperrten Zugangskennungen ist einzurichten, zu beschreiben und anzuwenden.“
-
-T Anforderung 66
-„Benutzerkennungen, welche über einen definierten Zeitraum nicht benutzt wurden, sind zu sperren bzw. auf inaktiv zu setzen.“
-
-T Anforderung 70
-„Im Berechtigungs- und Rollenkonzept muss beschrieben sein, welche Funktionsrollen nicht miteinander vereinbar sind und somit nicht von einer Person gleichzeitig wahrgenommen werden dürfen. Es sind technische und organisatorische Maßnahmen zu ergreifen, um diese Trennung sicherzustellen.“
-
-T Anforderung 71
-„Eine Kombination von Rollen bzw. Zugriffsrechten für eine Person, welche der Person mehr Rechte auf Datenzugriffe erteilt, als für ihre Aufgabe nötig ist, ist zu verhindern. Es sind technische und organisatorische Maßnahmen zu ergreifen, um dies sicherzustellen.“
-
-T Anforderung 73
-„Protokolldaten sind gegen unbefugten Zugriff in geeigneter Weise entsprechend dem Stand der Technik zu schützen.“
-
-T Anforderung 81
-„Die Übertragung personenbezogener oder personenbeziehbarer Gesundheitsdaten zwischen Clients und Servern wie auch zwischen Servern selbst muss entsprechend dem jeweiligen Stand der Technik generell verschlüsselt erfolgen.“
-
-T Anforderung 84
-„Dieser Prozess muss datenschutzgerechte Löschverfahren beinhalten.“
-
-T Anforderung 86
-„Gesundheitsdaten sind entsprechend dem Stand der Technik verschlüsselt in der Datenbank zu speichern, so dass bei administrativen Zugriffen Wartungspersonal keinen unbefugten Zugriff auf die gespeicherten Daten erhalten kann.“
-
-T Anforderung 87
-„Nur Personen, die laut Berechtigungskonzept zu einer Eingabe berechtigt sind, dürfen personenbezogene oder personenbeziehbare Daten in eine Datenaustauschplattform eingeben.“
-
-T Anforderung 88
-„Nur Personen, die laut Berechtigungskonzept zu einem Datenimport berechtigt sind, dürfen einen Import personenbezogener oder personenbeziehbarer Daten in eine Datenaustauschplattform durchführen oder veranlassen.“
-
-T Anforderung 89
-„Sowohl die Eingabe wie auch der Import personenbezogener oder personenbeziehbarer Daten muss protokolliert werden.“
-
-T Anforderung 93
-„Es muss ein Backup-Konzept vorhanden sein, welches gewährleistet, dass die Daten nach einem Vorfall in angemessener Zeit wieder zur Verfügung gestellt werden können. In diesem Backup-Konzept muss berücksichtigt werden, dass nur berechtigte Personen Zugriff auf Backup-Daten erlangen können.“
-
-T Anforderung 95
-„Entsprechend der festzulegenden Anforderung an die Verfügbarkeit der Datenaustauschplattform müssen Notfalleinrichtungen vorhanden sein.“
-
-//Abschliende Prüfung ob punkte umgesetzt sind, nach der Konzeption:
-Tabelle mit Punkten und Hacken auf (Umgestezt, teilweise Umgestezt, Nicht umgestezt+ Kommentar)
+Anhand dieses gesetzlichen Anforderungskataloges wird, zusammen mit dem Anforderungskatalog des Funkitonsumfangs des Messangers die konzeptionelle Umsetzung des Dienstes erarbeitet.
 
 \section{Anforderungen an den Funktionumfang}\label{section:pdimsbd}
 Neben den gesetzlichen Anforderungen an den Messanger Dienst muss auch der eigentliche Funktionsumfang definiert werden. Die für diese Arbeit geführten Experteninterviews haben gezeigt, dass es eine Vielzahl an möglichen Funktionen gibt, welche den Funktionsumfang von herkömmlichen Messangern weit überschreiten, aber speziel für den einsatz in Krankenhäusern einen Mehrwert bieten können.
 Da der Fokus dieser Arbeit allerdings auf der Umsetzung der gesätzlichen Anforderungen liegt, werden im folgenden nur Funktionen gesammelt, welche bei einem allgemein auf den professionellen Gebrauch ausgelegten Messanger Dienst zu erwarten sind und für den einsatz in Krankenhäusern hilfreich sind. Zudem soll aber auch bei der noch folgenden Konzeption des Messangers sichergestellt werden, das funktionale erweiterungen dennoch möglich sind.
 
-Die folgende Tabelle listet Funktionen professioneller Kommunkationsdienste, welche für den einsatz des Messanger Dienstes notwendig sind, basierend auf den geführten Experteninterviews:
-- Einzel und Gruppen Chats 
-- Themenspezifische Chaträume
-- Administrative Funktionen zur Vergabe von Rechten innerhalb des Dienstes 
-- Video und Audio telefonie
-- Anbindung an das Personalregister des Krankenhauses
-- Zugriff auf den Dienst per App, Desktop und Web Oberfläche
-- Durchsuchbares Personenregister 
-
-//
-
-\section{Prüfung der im medizinischen Sektor bestehenden Dienste}\label{section:pdimsbd}
-//Kapitel wird noch hinter den entwickelten Anforderungskatalog gerückt...// 
-
-Nachdem sich die vorherigen Kapitel mit den Anforderungen an einen Messanger Dienst für Krankenhäuser beschäftigt haben, behandelt das folgende Kapitel das bereits auf dem Markt vorhandene Angebote an Messenger Diensten und Prüft diese anhand des entwickelten Anforderungskatalog. Hierdurch soll zum einen sicher gestellt werden, dass nicht bereits ein, die Zielsetzung der Arbeit erfüllender,Dienst existiert, zum anderen sollen hierbei die Probleme der bereits existierenden Dienste für diesen Anwendungsfall verdeutlicht werden. Die Auswahl der im folgenden analysierten Dienste basieren auf den in den Experteninterviews genannten Lösungen, die in Krankenhäusern bereits vereinzelt für organisatorische, nicht aber für Gesundheitsdaten betreffende Kommunikation genutzt werden.
-
-WhatsApp: Bei WhatsApp handelt es sich um einen der populärsten Messenger Dienste Deutschlands. Der dem Facebook Konzern zugehörige Dienst ist vor allem für den privaten gebrauch ausgelegt, bietet aber dennoch einen großen Funktionsumfang, mit der Integration von Audio und Video Telefonaten, der Bedienung des Dienstes außerhalb der App über ein Web Interface und der Möglichkeit Nachrichten End zu End zu verschlüsseln.
-
--Speicherung von Daten direkt auf dem Handy
-
--Keine Administration möglich 
-
--An die Telefonnummer gebunden
-
--Kein Selfhosting möglich 
-
--Online Speicherung der Daten intransparent
-
--Programmcode nicht einsehbar
-
--Keine zwingende End zu End Verschlüsselung
-
--Eigentum eines amerikanischen Unternehmens
+Um eine repräsentative Auflistung der benötigten Funktionen eines Messangers für den professionellen Gebrauch zu erhalten listet die folgende Tablle die Kernfunktionen der beiden populärstebn Messanger DIneste für den professionellen Einsatz, Microsoft Teams und Slack.
+Mit 115 Millionen täglich aktiven Nutzern (Teams) und 44 Millionen täglich aktiven Nutzer (Slack) handelt es sich bei den beiden Diensten um die klaren Marktführer im segment der Kommunikationsplattformen für Unternehmen. Im folgenden ein kurzer Steckbrief der jewileigen Dienste:
 
 Slack: Slack ist eine proprietäre Geschäftskommunikationsplattform, die vom amerikanischen Softwareunternehmen Slack Technologies entwickelt wurde. Slack bietet viele Funktionen im IRC-Stil, einschließlich Chatrooms, die nach Themen, privaten Gruppen und Direktnachrichten organisiert sind. Zudem unterstützt auch Slack Video und Audio Telefonate, bietet aber gegenüber WhatsApp eine Reihe von Funktionen, welche speziell auf Enterprise Kunden ausgelegt sind. Hierzu zählen unter anderem eine Reihe von administrativer Funktionen, welche Unternehmen eine zentrale Verwaltung des Dienstes ermöglicht, oder die Option bestehende Nutzerverwaltungen an die Software anzubinden.
--Kein Selfhosting möglich
-
--Programmcode nicht einsehbar
-
--Keine zwingende End zu End Verschlüsselung
-
--Eigentum eines amerikanischen Unternehmens
 
 Microsoft Teams: Microsoft Teams ist eine proprietäre Geschäftskommunikationsplattform, die von Microsoft als Teil der Microsoft 365-Produktfamilie entwickelt wurde. Teams konkurriert hauptsächlich mit dem vergleichbaren Dienst Slack, da beide Softwareprodukte primär auf den Einsatz in Unternehmen ausgelegt sind. Teams bietet ebenfalls Möglichkeiten für Chat- und Videokonferenzen und das Teilen von Dateien. Der Hauptunterschied zwischen Microsofts Lösung und Slack liegt in der Präsentation, somit unterscheiden sich zwar UI und UX, die Kernfunktionen einer modernen Kommunikationsplattform decken aber beide Dienste gleichermaßen ab.
 
--Kein Selfhosting möglich 
+Die folgende Tabelle listet die Kernfunktionen eines professioneller Kommunkationsdiensts. Die Liste wurde auf Basis der von Slack und Teams für den jeweiligen Dienst beworbenen Funktionen erstellt, zusammen mit den im Experteninterview geananten Anforderungen an den Dienst. Diese Liste soll dabei als Anforderungsminimum für einen entsprechenden Dinest verstanden werden, welche zusammen mit den gesetzliche Anforderungen umgesetzt werden muss.
 
--Programmcode nicht einsehbar
+- Einzel und Gruppen Chats 
 
--Keine zwingende End zu End Verschlüsselung
+- Themenspezifische Chaträume
 
--Eigentum eines amerikanischen Unternehmens
+- Administrative Funktionen zur Vergabe von Rechten innerhalb des Dienstes 
 
-Siilo 
-Bei Siilo handelt es um den speziell für den medizinischen Sektor entwickelten Messenger Dienst aus Amsterdam.
-Siilo bietet dabei eine Reihe von speziell für den medizinischen Sektor angepassten Funktionen, wie die Möglichkeit Bildinhalte zu anonymisieren und wirbt mit einem besonders hohen Fokus auf Datenschutz und Datensicherheit.
+- Video und Audio telefonie
 
--Kein Selfhosting möglich
+- Anbindung an ein externes Personalregister zur Anmeldung
 
--Programmcode nicht einsehbar
+- Zugriff auf den Dienst per App, Desktop und Web Oberfläche
+
+- Durchsuchbares Personenregister
