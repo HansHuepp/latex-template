@@ -5,12 +5,12 @@ Das Ziel des folgende Kapitel ist es zu erläutern wie auf Baisis der aufgestell
 Um die Umsetzbarkeit der aufgestellten Anforderungen an den Messenger Dienst in einem realistischen und ökonomischen Rahmen zu halten wird davon abgesehen ein komplett neues Messenger System von Grund auf Aufzubauen. Es ist wesentlich effizienter die Entwicklung des Messengers auf einem bestehenden Framework aufzubauen, welches sich den Anforderungen entsprechend Anpassen lässt. Das folgende Kapitel beschäftigt sich mit Frameworks, welche für die aufgabe infrage kommen, damit anschließend das Konzept zur Umsetzung des Messengers auf Basis des ausgewählten Frameworks entwickelt werden kann. 
 
 \subsection{Auswahl des Frameworks}\label{chapter:am}
-//Kapitel noch nicht wertig
-Viele Open source Messenger mit denen sich die Anforderungen theoreitsich Umsetzen lassen
+Für die Konzeption zur Umsetzung des Anforderungskatalogs würden eine vielzahl von Frameworks in Frage kommen. Sollange der dem Messanger zugrunde liegende Code offen und anpassbar ist und das Framework technisch eine End zu End Verschlüsselung und DSGVO Complince ermöglichen würde, kann durch genügend Anpassungen versucht werden, die aufgestellenten Anforderungen zu erfüllen. 
 
-Grundlegende Kriterien: GDPR Compilance muss möglich sein, opensource und selbsthostbar
+Aus ökonomischer Sicht macht es jedoch am meisten Sinn ein Framework zu wählen, welches möglichst wenig Anpassungen benötigt, um die Anforderungen zu erfüllen. Aus diesem Grund wurde für die Konzeption das Matrix Framework ausgewählt.
+Matrix bietet eine robuste Codebasis, einen großen Fokus auf Sicherheit, eine aktive Entwicklercommunity und auf eine auf dem Framework aufbauende beispielimplementierung eines Messangers mit einem großen Funktionsumfang. 
 
-Matrix Framework: Robuste Basis, großer Fokus auf sicherheit, aktive Entwickelr Community, bietet Beispiel Interlation für Front und Backend, viele Anforderungen lassen sich gut mit Matrix umsetzen, dezentraliserit, wird für ähnliche Anwendugnsflälle bereits verwendet.
+Im folgenden werden die Funktionen und Vorzüge des Frameworks weiter erläutert und anschließend auf der Basis des Frameworks das Konzept erstellt. 
 
 \subsection{Vorstellung des Matrix Frameworks}\label{chapter:vdmf}
 Matrix ist ein offener Standard und ein Kommunikationsprotokoll für  Echtzeitkommunikation. Matrix bietet ein opensource Backend, welches über eine http API erreicht werden kann und die Kernfunktionen des Dienstes bereitstellt. Matrix bietet ebenfalls ein opensource Frontend, welches ein User Interface bereitstellt, über welches via der http API mit dem Backend kommuniziert werden kann. Somit stellt Matrix ein vollständiges, exemplarisches, opensource Backend und Frontend. Ein weiteres Alleinstellungsmerkmal von Matrix gegenüber anderer Standards ist zum einen, dass es mit einem besonderen Fokus auf Sicherheit entwickelt wurde und eine vollständig End zu End verschlüsselte Kommunikation  erlaubt, zum anderen, dass es dezentralisiert betrieben werden kann. Die Bedeutung der Dezentralisierung für die Umsetzung des Dienstes wird in späteren Kapiteln noch weiter erläutert.
@@ -137,7 +137,7 @@ user_consent:
 
 Diese Beschreibung soll dazu dienen ein grundsätzliches Verständis dafür zu bekommen, wie Policys in Matrix umgesetzt werden können. Die vollständige Entwicklerdokumentation für Policys befindet sich im Anhang.
 
-\subsubsection{Matrix Message retention policies}\label{chapter:vdmf}
+\subsubsection{Matrix Message retention}\label{chapter:vdmf}
 Innerhalb der Matrix homeserver.yaml des Matrix Homeservers kann eine sogenannte retention Policy festgelegt werden, welche die maximale Speicherdauer für alle über den Server versendeten Nachrichten festlegt. Beispielsweise kann eine retention Policy von 30 Tagen dafür sorgen, dass Nutzer nur die Nachrichten der letzten 30 Tage über den Messenger einsehen können und auch nur die Nachrichten der letzten 30 Tage in der Matrix Datenbank gespeichert werden. Die Konfiguration dieser Policy funktioniert wie folgt:
 
 Neben einer serverweiten retention Policy kann auch eine retention Policy für individuelle Räume festgelegt werden, welche nach dem gleichen Prinzip funktioniert und von den Administratoren des entsprechenden Raumes aktiviert werden kann. Diese Funktion kann von Nutzen sein, wenn Räume zum Versenden besonders sensibler Daten vorgesehen sind. Hier könnte die retention auf zum Beispiel 48 Stunden gesetzt werden, um sicher zu gehen, dass die Daten nicht länger als unbedingt notwendig im Messenger gespeichert bleiben. Die retention Policy für individuelle Räume kann von Administratoren bei den Raum Einstellungen im Developer Feld mit dem folgenden Befehl festlegen:
@@ -160,11 +160,33 @@ Nach einer Konfiguration wie in diesem Beispiel werden alle Nachrichten die ält
 
 \subsubsection{Matrix Nutzerverzeichnis Anbindung am Beispiel von IBM APP ID}\label{chapter:vdmf}
 Wie bereits in Kapitel x beschrieben kann Matrix durch eine Reihe von Standards mit externen Nutzerverwaltungen verbunden werden.
-Je nach gewähltem Standard und Nutzerverwaltung kann sich der Prozess zur Anbindung unterscheiden. Um den Nutzen und die Funktionsweise einer externen Nutzerverwaltung im Zusammenhang mit Matrix zu erläutert wird der Prozess im Folgenden beispielhaft durch die Anbindung des IBM Service APP ID per OIDC an eine Matrix Instanz demonstriert. Bei APP ID handelt es sich um einen Service, welcher als Connector zwischen Applikation und Nutzerverwaltungen verstanden werden kann. APP ID kann über eine Reihe von Schnittstellen mit Programmen oder Web Applikationen verbunden werden um deren Authentifikationsprozesse zu managen. Einmal angebunden können über APP ID bausteinartig Authentifikationsmethoden der entsprechenden Software hinzugefügt werden. Beispiele hierfür sind Login per Google oder Facebook Account, die APP ID eigene Nutzerverwaltung oder über eine weitere externe Nutzerverwaltung, welche an APP ID angebunden wurde. Dabei bietet APP ID zudem eine Reihe von Sicherheitsfunktionen wie 2 Faktor Authentifikation oder das Monitoring von Nutzeraktivitäten.
-Im Folgenden wird gezeigt, wie APP ID an eine Matrix Instanz angebunden werden kann:
+Je nach gewähltem Standard und Nutzerverwaltung kann sich der Prozess zur Anbindung unterscheiden. Um den Nutzen und die Funktionsweise einer externen Nutzerverwaltung im Zusammenhang mit Matrix zu erläutert wird der Prozess im Folgenden beispielhaft durch die Anbindung des IBM Service APP ID per SAML an eine Matrix Instanz demonstriert. Bei APP ID handelt es sich um einen Service, welcher als Connector zwischen Applikation und Nutzerverwaltungen verstanden werden kann. APP ID kann über eine Reihe von Schnittstellen mit Programmen oder Web Applikationen verbunden werden um deren Authentifikationsprozesse zu managen. Einmal angebunden können über APP ID bausteinartig Authentifikationsmethoden der entsprechenden Software hinzugefügt werden. Beispiele hierfür sind Login per Google oder Facebook Account, die APP ID eigene Nutzerverwaltung oder über eine weitere externe Nutzerverwaltung, welche an APP ID angebunden wurde. Dabei bietet APP ID zudem eine Reihe von Sicherheitsfunktionen wie 2 Faktor Authentifikation oder das Monitoring von Nutzeraktivitäten.
+APP ID wurde mit dem Matrix Homeserver über die SAML Schnittstelle verbunden, welche in der homerserver.yaml entsprechend konfiguriert werden kann. Da sich der Prozess der Anbindung je nach Nutzerverwaltung und gewählter Schnittstelle unterscheid, wird sich im folgenden auf die Vorstellung der sich aus der Verbindung ergebenden Funktionen fokussiert, mit welchen sich eine Vielzahl der Anforderungen erfüllen lassen.
+
+- Mit einer entsprechenden Konfiguration können nur Personen, welche über die Nutzerverwaltung hinterlegt sind auf den Messanger zugreifen und es müssen keine neuen Accounts erstellt werden. 
+
+% Einfügen einer Grafik
+\begin{figure}[htb]
+    % Zentrierung
+    \centering
+    % Einfügen der Datei, mit angepasster Höhe
+    \includegraphics[height=5cm]{graphics/sso.png}
+    % Titel und Label der Grafik
+    \caption[Matrix Login über eine angebundene Nutzerverwaltung]{Matrix Login über eine angebundene Nutzerverwaltung.\footnotemark}
+    \label{abb:DHBWLogo}
+\end{figure}
+\footnotetext{Matrix Netzwerk Architektur Quelle...}
+
+- Der Nutzer muss kein neues Passwort erstellen, sonder authentifiziert sich über das Nutzerverzeichnis.
+
+- Jeder Matrix Account kann dank der Nutzerverwaltung einer Person direkt zugeordnet werden, wodurch keine nicht zuordenbarn Aktivitäten auf dem Messanger vorkommen können.  
+
+- Der Zugriff auf den Messanger dienst kann über die Nutzerverwaltung zentral überwacht werden und Sicherheitsfunktionen wie 2 Faktor Authentifikation für den Login verpflichtet werden. 
+
+Da es keinen allgemeinen Standard für Nutzerverwaltungen in Krankenhäusern gibt, kann es sein, dass nicht jede Nutzerverwaltung über die gelisteten Funktionen verfügt und somit nicht für eine authentifikation gegenüber des Messangers genutzt werden kann. In diesem Fall sollte dennoch davon abgesehen werden, die Matrix eigene Nutzerverwaltung zum erstellen von Accounts zu nutzen, denn Matrix ist nicht in der Lage alle geforderten Funktionen wie 2 Faktor Authentifikation zu ermöglichen. Aus diesem Grund sollte in diesem Fall eine externe Nutzerverwaltung wie APP ID verwendet werden, welche über den benötigen Funktionsumfang verfügt.
 
 \subsubsection{Matrix Nutzer Administration}\label{chapter:vdmf}
-Für eine Administration von Chat Räumen bietet Matrix ein umfassendes Set an Rechten (siehe Abbildung) und Herachiebenen mit denen es möglich ist die Kommunikation im jeweiligen Chatraum zu managen. Matrix regelt die Vergabe der Rechte dabei vie folgt: Die Person, welche einen Raum anlegt ist ihr Administrator, von dieser Person ausgehend können dann alle Rechte wie gewünscht verteilt werden. Somit entsteht zwar ein organisatorischer Aufwand, da Gruppen einzeln mit den gewünschten Rechten konfiguriert werden müssen, auf der anderen Seite gibt es aber den Nutzern der Plattform eine wesentlich höheren gestaltungfreiraum innherlab der Gruppen. Dadurch das die Rechtevergabe nicht auf externen Systemen beruht, sondern selbstständig gemanaget werden kann entsteht ein hoher Grad an flexibilität bei der Einrichtung von Gruppen, der für einen Messanger Dienst angemessen ist.
+Für eine Administration von Chat Räumen bietet Matrix ein umfassendes Set an Rechten (siehe Abbildung) und Herachiebenen mit denen es möglich ist die Kommunikation im jeweiligen Chatraum zu managen. Matrix regelt die Vergabe der Rechte dabei vie folgt: Die Person, welche einen Raum anlegt ist ihr Administrator, von dieser Person ausgehend können dann alle Rechte wie gewünscht verteilt werden. Somit entsteht zwar ein organisatorischer Aufwand, da Gruppen einzeln mit den gewünschten Rechten konfiguriert werden müssen, auf der anderen Seite gibt es aber den Nutzern der Plattform eine wesentlich höheren gestaltungfreiraum innherlab der Gruppen. Dadurch das die Rechtevergabe nicht auf externen Systemen beruht, sondern selbstständig gemanagt werden kann entsteht ein hoher Grad an flexibilität bei der Einrichtung von Gruppen, der für einen Messanger Dienst angemessen ist.
 
 % Einfügen einer Grafik
 \begin{figure}[htb]
