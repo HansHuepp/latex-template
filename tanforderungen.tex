@@ -2,25 +2,24 @@
 Das Ziel des folgende Kapitel ist zu erläutern, wie auf Basis der aufgestellten gesetzlichen und funktionalen Anforderungen, ein der Zielsetzung dieser Arbeit entsprechenden Messengerdienst erstellt werden kann. Das im folgenden Kapitel erstellte Konzept zur Umsetzung des Dienstes soll als Leitfaden für die reale Erstellung des Messengers dienen. 
 
 \section{Framework als Basis des Konzepts}\label{chapter:kr}
-Um die Umsetzbarkeit der aufgestellten Anforderungen an den Messengerdienst in einem realistischen und ökonomischen Rahmen zu halten, wird davon abgesehen einen komplett neues Messengerdienst von Grund auf aufzubauen. Es ist wesentlich effizienter die Entwicklung des Messengers auf einem bestehenden Framework aufzubauen, welches sich den Anforderungen entsprechend anpassen lässt.\footnote{Vgl. \cite[S. 107 ff.]{Johnson2005}} Das folgende Kapitel beschäftigt sich mit der Auswahl und Vorstellung des passenden Frameworks, damit anschließend das Konzept zur Umsetzung des Messengers auf Basis des ausgewählten Frameworks entwickelt werden kann. 
+Um die Umsetzbarkeit der aufgestellten Anforderungen an den Messengerdienst in einem realistischen und ökonomischen Rahmen zu halten, wird davon abgesehen einen komplett neues Messengerdienst von Grund auf aufzubauen. Es ist wesentlich effizienter die Entwicklung des Messengers auf einem bestehenden Framework aufzubauen, welches sich den Anforderungen entsprechend anpassen lässt.\footnote{Vgl. \cite[S. 107 ff.]{Johnson2005}}
 
 \subsection{Auswahl des Frameworks}\label{chapter:am}
-Für die Konzeption zur Umsetzung des Anforderungskatalogs würden eine Vielzahl von Frameworks in Frage kommen. Solange der dem Messanger zugrunde liegende Code offen und anpassbar ist und das Framework technisch eine End to End Verschlüsselung hat und eine theoretische Einhaltung der allgemeinen DSGVO Richtlinien ermöglichen würde, kann durch genügend Anpassungen versucht werden, die aufgestellenten Anforderungen zu erfüllen. (Siehe Anforderungskatalog)
+ALs Grundlage für die Konzeption zur Umsetzung des Anforderungskatalogs würden eine Vielzahl von Frameworks in Frage kommen. Solange der dem Messanger zugrunde liegende Code offen und anpassbar ist und das Framework technisch eine End to End Verschlüsselung hat und eine theoretische Einhaltung der allgemeinen DSGVO Richtlinien ermöglichen würde, kann durch genügend Anpassungen versucht werden, die aufgestellenten Anforderungen zu erfüllen. (Siehe Anforderungskatalog)
 
 Aus ökonomischer Sicht macht es jedoch am meisten Sinn ein Framework zu wählen, welches möglichst wenig Anpassungen benötigt, um die Anforderungen zu erfüllen. Aus diesem Grund wurde für die Konzeption das Matrix Framework ausgewählt.
-Matrix bietet eine robuste Codebasis, eine vielzahl an integrierten Sicherheitsfunktionen, eine aktive Entwicklercommunity und eine, auf dem Framework aufbauende beispielimplementierung eines Messangers mit einem großen Funktionsumfang. Im Folgenden werden die Funktionen und Vorzüge des Frameworks weiter erläutert und anschließend auf der Basis des Frameworks das Konzept erstellt. \footnote{Vgl. \cite{Matrix.org2020}} \footnote{Vgl. \cite{Github2020}} 
+Matrix bietet eine robuste Codebasis, eine vielzahl an integrierten Sicherheitsfunktionen, eine aktive Entwicklercommunity und eine, auf dem Framework aufbauende beispielimplementierung eines Messangers mit einem großen Funktionsumfang. Im Folgenden werden die Funktionen und Vorzüge des Frameworks weiter erläutert. \footnote{Vgl. \cite{Matrix.org2020}} \footnote{Vgl. \cite{Github2020}} 
 
 \subsection{Vorstellung des Matrix Frameworks}\label{chapter:vdmf}
-Matrix ist ein offener Standard und ein Kommunikationsprotokoll für  Echtzeitkommunikation. Matrix bietet ein opensource Backend, welches über eine http API erreicht werden kann und die Kernfunktionen des Dienstes bereitstellt.\footnote{Vgl. \cite{Matrix.org2020}} Matrix bietet ebenfalls ein opensource Frontend, welches ein User Interface bereitstellt, über welches via der http API mit dem Backend kommuniziert werden kann. Somit stellt Matrix ein vollständiges, exemplarisches, opensource Backend und Frontend.\footnote{Vgl. \cite{Github2020}} 
-Ein weiteres Alleinstellungsmerkmal von Matrix gegenüber anderer Standards ist zum einen, dass es mit einem besonderen Fokus auf Sicherheit entwickelt wurde und eine vollständig End zu End verschlüsselte Kommunikation  erlaubt, zum anderen, dass es dezentralisiert betrieben werden kann.\footnote{Vgl. \cite{Nccgroup2016}} Die Bedeutung der Dezentralisierung für die Umsetzung des Dienstes wird in späteren Kapiteln noch weiter erläutert.
-
+Matrix ist ein offener Standard und ein Kommunikationsprotokoll für  Echtzeitkommunikation. Matrix bietet ein opensource Backend, welches über eine HTTP API erreicht werden kann und die Kernfunktionen des Dienstes bereitstellt.\footnote{Vgl. \cite{Matrix.org2020}} Matrix bietet ebenfalls ein opensource Frontend, welches ein User Interface bereitstellt, über welches via der HTTP API mit dem Backend kommuniziert werden kann. Somit stellt Matrix ein vollständiges, exemplarisches, opensource Backend und Frontend.\footnote{Vgl. \cite{Github2020}} 
+Ein weiteres Alleinstellungsmerkmal von Matrix gegenüber anderer Standards ist zum einen, dass es mit einem besonderen Fokus auf Sicherheit entwickelt wurde und eine vollständig End zu End verschlüsselte Kommunikation  erlaubt, zum anderen, dass es dezentralisiert betrieben werden kann.\footnote{Vgl. \cite{Nccgroup2016}}
 Das Matrix-Projekt wurde von einer gemeinnützigen Stiftung mit Sitz in Großbritannien mit dem Ziel ins Leben gerufen, ein Framework für dezentrale Open-Source-Messaging-Dienste mit den Schwerpunkten Sicherheit, Datenschutz und Anpassungsfähigkeit zu entwickeln. Heute bietet Matrix eine robuste Codebasis zum Einrichten benutzerdefinierter Messaging-Dienste und bietet mit Element eine ergänzende Slack-ähnliche Benutzeroberfläche.\footnote{Vgl. \cite{Matrix.org2020}}
 
 Aufgrund seiner hohen Sicherheitsstandards und seines dezentralen Ansatzes wurde Matrix  von der französischen Regierung ausgewählt, um die Basis für eine sichere Messenger-App zu schaffen und eine bessere Kommunikation in und zwischen verschiedenen Abteilungen der Regierung zu ermöglichen. Neben der französischen Regierung\footnote{Vgl. \cite{Republique-Francaise2018}} wählte auch die deutsche Bundeswehr\footnote{Vgl. \cite{Weiss2020}} Matrix als Basis für die Entwicklung eines internen Kommunikationsinstruments. Matrix wird also bereits in vergleichbaren Einsatzgebieten genutzt, um hochsensible Daten zu versenden.
 
 \subsubsection{Matrix Funktionsumfang für den Nutzer}\label{chapter:aemn}
 Von Haus aus verfügt Matrix bereits über einen sehr robusten Funktionsumfang, welcher im Folgenden vorgestellt wird.
-Der Aufbau des Dienstes ist mit dem des Dienstes Slack vergleichbar. Das bedeutet Chats werden in Einzel/ Gruppenchats und Räume aufgeteilt. 
+Abbildung 1 zeigt das Matrix-Nutzerinterface. Chats werden in Einzel/ Gruppenchats und Räume aufgeteilt.
 
 % Einfügen einer Grafik
 \begin{figure}[htb]
@@ -29,7 +28,7 @@ Der Aufbau des Dienstes ist mit dem des Dienstes Slack vergleichbar. Das bedeute
     % Einfügen der Datei, mit angepasster Höhe
     \includegraphics[height=8cm]{graphics/unknown-3.png}
     % Titel und Label der Grafik
-    \caption[Matrix UI]{Matrix UI.\footnotemark}
+    \caption[Matrix UI]{Matrix UI: (1) Communityliste, (2) Chat- /Raumliste, (3)Chatfenster, (4) Teilnehmerliste.\footnotemark }
     \label{abb:UI}
 \end{figure}
 
@@ -151,6 +150,7 @@ default_policy:
     max_lifetime: 30d
 \end{lstlisting}
 
+Nach einer Konfiguration, wie in diesem Beispiel, werden alle Nachrichten die älter als 30 Tage sind von der Datenbank des Homeservers gelöscht.
 
 Neben einer serverweiten retention Policy kann auch eine retention Policy für individuelle Räume festgelegt werden, welche nach dem gleichen Prinzip funktioniert und von den Administratoren des entsprechenden Raumes aktiviert werden kann. Diese Funktion kann von Nutzen sein, wenn Räume zum Versenden besonders sensibler Daten vorgesehen sind. Hier könnte die retention auf zum Beispiel 48 Stunden gesetzt werden, um sicher zu gehen, dass die Daten nicht länger als unbedingt notwendig im Messenger gespeichert bleiben. Die retention Policy für individuelle Räume kann von Administratoren bei den Raum Einstellungen im Developer Feld mit dem Event Type "m.room.retention" folgenden Befehl festlegen:
 
@@ -161,8 +161,11 @@ Neben einer serverweiten retention Policy kann auch eine retention Policy für i
 \subsubsection{Matrix Nutzerverzeichnis Anbindung am Beispiel von IBM APP ID}\label{chapter:vdmf}
 Wie bereits in Kapitel x beschrieben kann Matrix durch eine Reihe von Standards mit externen Nutzerverwaltungen verbunden werden.
 Je nach gewähltem Standard und Nutzerverwaltung kann sich der Prozess zur Anbindung unterscheiden. Um den Nutzen und die Funktionsweise einer externen Nutzerverwaltung im Zusammenhang mit Matrix zu erläutert, wird der Prozess im Folgenden beispielhaft durch die Anbindung des IBM Service APP ID per SAML an eine Matrix Instanz demonstriert. Bei APP ID handelt es sich um einen Service, welcher als Connector zwischen Applikation und Nutzerverwaltungen verstanden werden kann. APP ID kann über eine Reihe von Schnittstellen mit Programmen oder Web Applikationen verbunden werden, um deren Authentifikationsprozesse zu managen. Einmal angebunden können über APP ID bausteinartig Authentifikationsmethoden der entsprechenden Software hinzugefügt werden. Beispiele hierfür sind Login per Google oder Facebook Account, die APP ID eigene Nutzerverwaltung oder über eine weitere externe Nutzerverwaltung, welche an APP ID angebunden wurde. Dabei bietet APP ID zudem eine Reihe von Sicherheitsfunktionen wie 2 Faktor Authentifikation.
+APP ID wurde mit dem Matrix Homeserver über die SAML Schnittstelle verbunden, welche in der homerserver.yaml entsprechend konfiguriert werden kann. Da sich der Prozess der Anbindung je nach Nutzerverwaltung und gewählter Schnittstelle unterscheidet, wird sich im Folgenden auf die Vorstellung der sich aus der Verbindung ergebenden Funktionen fokussiert, mit welchen sich eine Vielzahl der Anforderungen erfüllen lassen.
 
-- Mit einer entsprechenden Konfiguration können nur Personen, welche über die Nutzerverwaltung hinterlegt sind auf den Messanger zugreifen und es müssen keine neuen Accounts erstellt werden. 
+\begin{itemize}
+    \item Mit einer entsprechenden Konfiguration können nur Personen, welche über die Nutzerverwaltung hinterlegt sind, auf den Messanger zugreifen und es müssen keine neuen Accounts erstellt werden. 
+\end{itemize}
 
 % Einfügen einer Grafik
 \begin{figure}[htb]
