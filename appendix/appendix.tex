@@ -62,7 +62,7 @@
     93     & „Es muss ein Backup-Konzept vorhanden sein, welches gewährleistet, dass die Daten nach einem Vorfall in angemessener Zeit wieder zur Verfügung gestellt werden können. In diesem Backup-Konzept muss berücksichtigt werden, dass nur berechtigte Personen Zugriff auf Backup-Daten erlangen können.“ & teilweise relevant & Die technische Möglichkeit der Erstellung regelmäßiger Backups muss gewährleistet sein.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             \\ \hline
 \caption{Gesetzlicher Anforderungskatalog an einen Messengerdienst für den Austausch von Gesundheitsdaten}    
 \end{longtable}
-
+\newpage
 \anhang{Gesetzlicher Anforderungskatalog an einen Messengerdienst für den Austausch von Gesundheitsdaten, erweitert mit den Ansätzen zur Umsetzung durch das Matrix Framework}
 
 \begin{longtable}{p{0.6cm}|p{4cm}|p{5cm}|p{5cm}}
@@ -86,18 +86,22 @@ Nr. & Anforderung\footnote{Die im Folgenden gelisteten Anforderungen wurden entn
   5 &
   „Datenschutzhinweise müssen unmittelbar von der Startseite der Datenaustauschplattform aus aufrufbar bzw. erreichbar sein.“ &
   Da es sich bei dem Matrix Frontend um Opensource-Software handelt, geschrieben in HTML und JavaScript, ist das Einfügen eines entsprechenden Verweises auf die Datenschutzhinweise auf der Startseite des Messengers problemlos möglich. &
+  siehe Nr.4
   \\ \hline
 6 &
   „Datenschutzhinweise müssen für den Betroffenen jederzeit abrufbar sein.“ &
   Da es sich bei dem Matrix Frontend um Opensource Software handelt, geschrieben in HTML und JavaScript, ist das Einfügen eines entsprechenden Verweises auf die Datenschutzhinweise auf der Startseite des Messenger problemlos möglich &
+  siehe Nr.4
   \\ \hline
 7 &
   „Bei nachträglicher Änderung ist der Betroffene zu informieren und sein Einverständnis erneut einzuholen.“ &
   Matrix erlaubt es technisch Policys anzulegen, denen der User zustimmen muss, bevor er den Dienst nutzen kann. Es ist auch möglich, den Nutzer, wie in der Anforderung beschrieben, nachträglich über Änderungen der Datenschutzhinweisen zu informieren und ein erneutes Einverständnis einzuholen. Die Datenschutzhinweise können somit, wie in der Anforderung beschrieben, als Policy angelegt werden. &
+  siehe Nr.4
   \\ \hline
 8 &
   „Wird die Einwilligung des Betroffenen elektronisch eingeholt, so muss der Vorgang protokolliert werden und der Inhalt der Einwilligung für den Betroffenen jederzeit abrufbar sein.“ &
   Matrix erlaubt den Nutzern über eine vom Dienst zur Verfügung gestellte URL jederzeit alle hinterlegten Policys einzusehen. Zudem verfolgt Matrix, ob der Nutzer den Policys zugestimmt hat. &
+  siehe Nr.4
   \\ \hline
 9 &
   „Personenbezogene oder personenbeziehbare Daten müssen pseudonymisiert werden, soweit dies nach dem Verwendungszweck möglich ist und keinen im Verhältnis zu dem angestrebten Schutzzweck unverhältnismäßigen Aufwand erfordert.“ &
@@ -112,10 +116,12 @@ Nr. & Anforderung\footnote{Die im Folgenden gelisteten Anforderungen wurden entn
 14 &
   „Die Verwendung von Cookies durch Drittanbieter muss auf die Erstellung anonymer Nutzungsstatistiken beschränkt sein.“ &
   Matrix erlaubt es technisch Policys anzulegen, denen der User zustimmen muss, bevor er den Dienst nutzen kann. Die rechtlich wirksame Einwilligung des Nutzers kann somit, wie in der Anforderung beschrieben, als Policy angelegt werden. &
+  siehe Nr.13
   \\ \hline
 15 &
   „Das Handling der Drittanbieter-Cookies muss durch den Betroffenen steuer- und nachvollziehbar sein.“ &
   Matrix erlaubt es technisch Policys anzulegen, denen der User zustimmen muss, bevor er den Dienst nutzen kann. Die rechtlich wirksame Einwilligung des Nutzers kann somit, wie in der Anforderung beschrieben, als Policy angelegt werden. &
+  siehe Nr.13
   \\ \hline
 18 &
   „Die Erhebung, Verarbeitung und Nutzung von Daten zur Erstellung von Nutzungsstatistiken von Webportalen muss dokumentiert werden.“ &
@@ -125,10 +131,12 @@ Nr. & Anforderung\footnote{Die im Folgenden gelisteten Anforderungen wurden entn
 19 &
   „Die Erstellung von Nutzungsstatistiken von Datenaustauschplattformen muss auf Basis anonymisierter Daten erfolgen.“ &
   Die Erstellung von Statistiken auf Basis der Nutzeraktivitäten des Messenger ist nicht Bestandteil der Zielsetzung dieser Arbeit. Matrix beitet allerdings dennoch die Möglichkeit, eine entsprechende Funktion zu implementieren. &
+  siehe Nr.18
   \\ \hline
 20 &
   „Eine Analyse des Nutzerverhaltens (einschließlich Geolokalisierung) auf der Basis gekürzter IP-Adressen ist ohne Einwilligung des Betroffenen möglich, wenn durch die Kürzung der IP-Adresse ein Personenbezug ausgeschlossen wurde. &
   Die Erstellung von Statistiken auf Basis der Nutzeraktivitäten des Messenger ist nicht Bestandteil der Zielsetzung dieser Arbeit. Matrix beitet allerdings dennoch die Möglichkeit, eine entsprechende Funktion zu implementieren. &
+  siehe Nr.18
   \\ \hline
 31 &
   „Alle Personen, welche auf die gespeicherten Gesundheitsdaten zugreifen können, müssen vor dem erstmaligen Zugriff auf die Wahrung des Datengeheimnisses verpflichtet worden sein.“ &
@@ -163,10 +171,12 @@ Nr. & Anforderung\footnote{Die im Folgenden gelisteten Anforderungen wurden entn
 42 &
   „Der Betroffene muss die Möglichkeit haben, einen Ausdruck oder einen für ihn verwertbaren Export aller zu seiner Person gespeicherten Daten zu erhalten.“ &
   Da alle über Matrix versendeten Daten in der für das Krankenhaus vorgesehenen Konfiguration End zu End verschlüsselt sein werden, handelt es sich bei den über die Nutzer des Dienstes gespeicherten personenbezogenen Daten ausschließlich um die im Nutzerprofil angegebenen Informationen. Diese können selbstständig vom Nutzer eingesehen und angepasst werden. Zudem ist es aber auch für den Support des Dienstes möglich, durch einen entsprechenden Query in der an Matrix angebundenen Datenbank alle personenbezogenen Daten des entsprechenden Nutzerprofils abzufragen, um sie entsprechend an den Nutzer weiterzu eiten. &
+  siehe Nr.41
   \\ \hline
 43 &
   „Es muss eine Möglichkeit geben, auf Aufforderung des Betroffenen Daten zu seiner Person zu korrigieren.“ &
   Da alle über Matrix versendeten Daten in der für das Krankenhaus vorgesehenen Konfiguration End zu End verschlüsselt sein werden, handelt es sich bei den über die Nutzer des Dienstes gespeicherten personenbezogenen Daten ausschließlich um die im Nutzerprofil angegebenen Informationen. Diese können selbstständig vom Nutzer eingesehen und angepasst werden. Zudem ist es aber auch für den Support des Dienstes möglich, durch einen entsprechenden Query in der an Matrix angebundenen Datenbank alle personenbezogenen Daten des entsprechenden Nutzerprofils abzufragen, um sie entsprechend an den Nutzer weiterzuleiten. &
+  siehe Nr.41
   \\ \hline
 46 &
   „Es muss eine Löschfunktion implementiert werden, welche eine Rekonstruktion gelöschter Informationen ausschließt.“ &
@@ -236,6 +246,7 @@ Nr. & Anforderung\footnote{Die im Folgenden gelisteten Anforderungen wurden entn
 88 &
   „Nur Personen, die laut Berechtigungskonzept zu einem Datenimport berechtigt sind, dürfen einen Import personenbezogener oder personenbeziehbarer Daten in eine Datenaustauschplattform durchführen oder veranlassen.“ &
   Anforderung 88 muss auf organisatorischer Ebene umgesetzt werden. Falls es dennoch notwendig ist, einzelnen Personen auf einer technischen Ebene das Teilen von Inhalten in bestimmten Räumen zu verbieten, ist dies als Administrator des Raumes möglich. &
+  siehe Nr.87
   \\ \hline
 93 &
   „Es muss ein Backup-Konzept vorhanden sein, welches gewährleistet, dass die Daten nach einem Vorfall in angemessener Zeit wieder zur Verfügung gestellt werden können. In diesem Backup-Konzept muss berücksichtigt werden, dass nur berechtigte Personen Zugriff auf Backup-Daten erlangen können.“ &
@@ -244,7 +255,7 @@ Nr. & Anforderung\footnote{Die im Folgenden gelisteten Anforderungen wurden entn
   \\ \hline
   \caption{Gesetzlicher Anforderungskatalog an einen Messengerdienst für den Austausch von Gesundheitsdaten, erweitert mit den Ansätzen zur Umsetzung durch das Matrix Framework} 
 \end{longtable}
-
+\newpage
 \anhang{Muster homeserver.yaml}
 
 Bei dem hier hinterlegten Dokument handelt es sich um eine Beispielkonfiguration der homeserver.yaml, über welche der Homeserver einer Matrix Instanz konfiguriert werden kann.
@@ -872,7 +883,7 @@ Bei dem hier hinterlegten Dokument handelt es sich um eine Beispielkonfiguration
     #user_directory:
     #   search_all_users: false
 \end{lstlisting}
-
+\newpage
 \anhang{Interviewleitfaden}
 
 \begin{longtable}{p{12cm}|p{3cm}}
@@ -901,7 +912,7 @@ Bei dem hier hinterlegten Dokument handelt es sich um eine Beispielkonfiguration
 (5)	Wo sehen Sie die größten Hürden bei der Einführung einer solchen Kommunikationsplattform im Krankenhaus?                &          \\ \hline
 \caption{Interviewleitfaden} 
 \end{longtable}
-
+\newpage
 \anhang{Experteninterview Georg Woditsch}
 
 Experteninterview
